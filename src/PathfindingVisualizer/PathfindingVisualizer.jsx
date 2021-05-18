@@ -9,11 +9,22 @@ const FINISH_CELL_ROW = Math.ceil(Math.random() * 19);
 const FINISH_CELL_COL = Math.ceil(Math.random() * 15) +37;
 
 export default class PathfindingVisualizer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       grid: [],
+      gridValue: "clear",
+      algorithmsValue: "Dijkstra's",
+      speedValue: 'fast',
     };
+    // this.gridVisualizer = {value: "clear"};
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    console.log(event.target.value);
+    this.setState({[event.target.name]: event.target.value});
+
   }
 
   componentDidMount() {
@@ -27,6 +38,35 @@ export default class PathfindingVisualizer extends Component {
 
     return (
       <>
+        <div className="header">
+          <div className="navbar-outline">
+            <div className="main-name">Pathfinding Visualizer</div>
+            <div className= "dropdownMenu">
+              <select className="form-select" value={this.state.value} onChange={this.handleChange} name="gridValue">
+                <option value="clear">Clear</option>
+                <option value="maze">Maze</option>
+              </select>
+            </div>
+            <div className= "dropdownMenu">
+              <select className="form-select" value={this.state.value} onChange={this.handleChange} name="algorithmsValue">
+                <option value="Dijkstra's">Dijkstra's Algorithm</option>
+                <option value="A*">A* Search</option>
+                <option value="BFS">Breadth-First Search</option>
+                <option value="DFS">Depth-First Search</option>
+              </select>
+            </div>
+            <div className="dropdownMenu">
+              <button className="btn btn-primary">Visualize {this.state.algorithmsValue}!</button>
+            </div>
+            <div className= "dropdownMenu">
+              <select className="form-select" value={this.state.value} onChange={this.handleChange} name="speedValue">
+                <option value="slow">Slow</option>
+                <option value="normal">Normal</option>
+                <option value="fast">Fast</option>
+              </select>
+            </div>
+          </div>
+        </div>
         <div className="grid">
           {grid.map((row, rowIdx) => {
             return (
@@ -76,3 +116,4 @@ const createCell = (col, row) => {
     previousCell: null,
   };
 };
+
