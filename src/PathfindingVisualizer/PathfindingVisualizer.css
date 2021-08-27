@@ -28,7 +28,7 @@
 .dropdownMenu {
   float: left;
   overflow: hidden;
-  margin: 0 30px;
+  margin: 0 15px;
 }
 
 .form-select {
@@ -60,4 +60,11 @@
 
 .btn {
   border-radius: 15px;
+}
+
+.sorting-visualizer {
+  float: left;
+  overflow: hidden;
+  margin: 0 20px 0 70px;
+  font-size: 25px;
 }
