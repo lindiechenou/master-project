@@ -1,14 +1,14 @@
 .cell {
   width: 25px;
   height: 25px;
-  outline: 1px solid #43d3d8;
+  outline: 1px solid #ec9b50;
   display: inline-block;
   /* vertical-align: top; */
 }
 
 .cell-finish {
   background-image: url(https://image.flaticon.com/icons/png/512/67/67872.png);
-  background-size: 24px;
+  background-size: 21px;
   background-position: center center;
   background-repeat: no-repeat;
   animation: opacity 0.3s ease-in;
@@ -20,4 +20,69 @@
   background-position: center center;
   background-repeat: no-repeat;
   animation: opacity 0.3s ease-in;
+}
+
+.cell-wall {
+  background-color: rgb(12, 53, 71);
+}
+
+.cell-shortest-path {
+  animation-name: shortestPath;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes shortestPath {
+  0% {
+    transform: scale(0.6);
+    background-color: rgb(255, 254, 106);
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-color: rgb(255, 254, 106);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgb(255, 254, 106);
+  }
+}
+
+.cell-visited {
+  animation-name: visitedAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes visitedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(17, 104, 217, 0.75);
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(0, 217, 159, 0.75);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgba(0, 190, 218, 0.75);
+  }
 }
